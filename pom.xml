@@ -19,7 +19,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>example</module>
+        <module>check</module>
         <module>starter</module>
     </modules>
 

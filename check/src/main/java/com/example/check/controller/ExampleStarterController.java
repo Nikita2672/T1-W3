@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.check.controller;
 
 import com.example.annotations.LogRequest;
 import org.springframework.web.bind.annotation.GetMapping;
