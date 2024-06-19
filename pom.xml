@@ -20,7 +20,7 @@
 
     <modules>
         <module>example</module>
-        <module>starter</module>
+        <module>common</module>
     </modules>
 
     <build>

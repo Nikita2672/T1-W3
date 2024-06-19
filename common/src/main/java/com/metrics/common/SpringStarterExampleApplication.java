@@ -1,12 +1,13 @@
-package com.example;
+package com.metrics.common;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StarterCheckApplication {
+public class SpringStarterExampleApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(StarterCheckApplication.class, args);
+        SpringApplication.run(SpringStarterExampleApplication.class, args);
     }
+
 }

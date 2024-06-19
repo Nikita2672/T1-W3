@@ -1,13 +1,12 @@
-package com.example;
+package com.example.check;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringStarterExampleApplication {
+public class StarterCheckApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringStarterExampleApplication.class, args);
+        SpringApplication.run(StarterCheckApplication.class, args);
     }
-
 }

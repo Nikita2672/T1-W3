@@ -1,4 +1,4 @@
-package com.example.aspect;
+package com.metrics.common.aspect;
 
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,7 +18,7 @@ import java.util.Enumeration;
 @Component
 public class LogRequestAspect {
 
-    @Pointcut("@annotation(com.example.annotations.LogRequest)")
+    @Pointcut("@annotation(com.metrics.common.annotations.LogRequest)")
     public void logPointcut() {
     }
 

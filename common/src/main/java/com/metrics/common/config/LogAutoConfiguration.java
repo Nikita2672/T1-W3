@@ -1,6 +1,6 @@
-package com.example.config;
+package com.metrics.common.config;
 
-import com.example.aspect.LogRequestAspect;
+import com.metrics.common.aspect.LogRequestAspect;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
