@@ -1,4 +1,4 @@
-package com.metrics.common.annotations;
+package com.example.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

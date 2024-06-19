@@ -45,8 +45,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.metrics</groupId>
-            <artifactId>common</artifactId>
+            <groupId>com.example</groupId>
+            <artifactId>logger-spring-boot-starter</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

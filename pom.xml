@@ -19,8 +19,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>example</module>
-        <module>common</module>
+        <module>check</module>
+        <module>starter</module>
     </modules>
 
     <build>
