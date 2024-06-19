@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: hw3
+server:
+  port: 8080
