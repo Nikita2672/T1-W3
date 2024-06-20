@@ -88,9 +88,6 @@ public class LogRequestAspect {
 
     private void log(String message) {
         switch (level.toUpperCase()) {
-            case "DEBUG":
-                log.debug(message);
-                break;
             case "WARN":
                 log.warn(message);
                 break;
