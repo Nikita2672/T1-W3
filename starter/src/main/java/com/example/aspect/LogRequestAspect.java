@@ -1,13 +1,12 @@
 package com.example.aspect;
 
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -15,8 +14,20 @@ import java.util.Enumeration;
 
 @Aspect
 @Slf4j
-@Component
 public class LogRequestAspect {
+
+    private static final String DEFAULT_FORMAT = "Request Info: %s, %s, %s";
+
+    private static final String DEFAULT_LEVEL = "INFO";
+
+    private final String level;
+
+    private final String format;
+
+    public LogRequestAspect(String level, String format) {
+        this.level = (level == null || level.isEmpty()) ? DEFAULT_LEVEL : level;
+        this.format = (format == null || format.isEmpty()) ? DEFAULT_FORMAT : format;
+    }
 
     @Pointcut("@annotation(com.example.annotations.LogRequest)")
     public void logPointcut() {
@@ -44,15 +55,17 @@ public class LogRequestAspect {
     }
 
     private void logRequestDetails(HttpServletRequest request) {
-        log.info("Request Method: {}", request.getMethod());
-        log.info("Request URL: {}", request.getRequestURL());
-        log.info("Request Headers: {}", getHeadersInfo(request));
+        String logMessage = String.format(format, "Request Method: " + request.getMethod(),
+                "Request URL: " + request.getRequestURL(),
+                "Request Headers: " + getHeadersInfo(request));
+        log(logMessage);
     }
 
     private void logResponseDetails(HttpServletResponse response, long duration) {
-        log.info("Response Status: {}", response.getStatus());
-        log.info("Response Headers: {}", getHeadersInfo(response));
-        log.info("Request Duration: {} ms", duration);
+        String logMessage = String.format(format, "Response Status: " + response.getStatus(),
+                "Response Headers: " + getHeadersInfo(response),
+                "Request Duration: " + duration + " ms");
+        log(logMessage);
     }
 
     private String getHeadersInfo(HttpServletRequest request) {
@@ -71,5 +84,22 @@ public class LogRequestAspect {
             headers.append(headerName).append(": ").append(response.getHeader(headerName)).append(", ");
         }
         return headers.toString();
+    }
+
+    private void log(String message) {
+        switch (level.toUpperCase()) {
+            case "DEBUG":
+                log.debug(message);
+                break;
+            case "WARN":
+                log.warn(message);
+                break;
+            case "ERROR":
+                log.error(message);
+                break;
+            default:
+                log.info(message);
+                break;
+        }
     }
 }

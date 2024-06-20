@@ -3,3 +3,5 @@ spring:
     name: hw3
 server:
   port: 8081
+log:
+  format: Request Info %s
