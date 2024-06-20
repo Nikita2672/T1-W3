@@ -6,15 +6,7 @@
 
 ## Как начать
 
-### 1. Настройка базы данных
-Вам необходимо проставить значение переменных окружения DATABASE_URL, DATABASE_USERNAME DATABASE_PASSWORD это можно сделать командой:
-```bash
-export DATABASE_URL=<your database url>
-export DATABASE_USERNAME=<your database username>
-export DATABASE_PASSWORD=<your database password>
-```
-
-### 2. Сборка и запуск приложения
+### 1. Сборка и запуск приложения
 
 В качестве демонстрации работоспособности разработанного starter-а был разработан модуль проверки (check), в него уже добавлена зависимость:
 ```xml
@@ -32,7 +24,7 @@ mvn clean install
 java -jar check/target/check-0.0.1-SNAPSHOT.jar
 ```
 
-## 3. Документация с примерами использования
+## 2. Документация с примерами использования
 
 С документацией разработанного стартера вы можете ознакомиться перейдя по [ссылке](links/Documentation.md)
 
